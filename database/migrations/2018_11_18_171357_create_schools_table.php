@@ -18,6 +18,7 @@ class CreateSchoolsTable extends Migration
             $table->string('name');
             $table->integer('scoreboard');
             $table->integer('students_number');
+            $table->integer('teacher_id');
             $table->timestamps();
         });
     }

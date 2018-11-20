@@ -17,7 +17,6 @@ class CreateTasksTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->integer('assigned_by');
-            $table->integer('assigned_to');
             $table->integer('level');
             $table->timestamps();
         });

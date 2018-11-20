@@ -30,4 +30,14 @@ class Teacher extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function school()
+    {
+        return $this->belongsTo('App\School');
+    }
+
+    public function tasks()
+    {
+        return $this->hasMany('App\Task', 'assigned_by');
+    }
 }
