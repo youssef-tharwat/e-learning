@@ -11,32 +11,52 @@
                         <ul class="navbar-nav ml-auto" style="display: flex; flex-direction: row;">
                             <!-- Authentication Links -->
                             @guest
-                                <li class="nav-item mr-3">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                                <li class="nav-item">
-                                    @if (Route::has('register'))
-                                        <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                    @endif
-                                </li>
+                            <li class="nav-item mr-3">
+                                <ul class="nav nav-tabs|pills">
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                            aria-haspopup="true" aria-expanded="false">Login</a>
+                                        <div class="dropdown-menu p-3">
+                                            <a class="nav-link" href="{{ route('login') }}">{{ __('Student Login') }}</a>
+                                            <a class="nav-link" href="{{ route('teacher.login') }}">{{ __('Teacher Login') }}</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item">
+                                @if (Route::has('register'))
+                                
+                                <ul class="nav nav-tabs|pills">
+                                        <li class="nav-item dropdown">
+                                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                                aria-haspopup="true" aria-expanded="false">Register</a>
+                                            <div class="dropdown-menu p-3">
+                                                <a class="nav-link" href="{{ route('register') }}">{{ __('Student Register') }}</a>
+                                                <a class="nav-link" href="{{ route('login') }}">{{ __('Teacher Register') }}</a>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                @endif
+                            </li>
                             @else
-                                <li class="nav-item dropdown">
-                                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                        {{ Auth::user()->name }} <span class="caret"></span>
+                            <li class="nav-item dropdown">
+                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                </a>
+
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        {{ __('Logout') }}
                                     </a>
 
-                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="{{ route('logout') }}"
-                                           onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                            {{ __('Logout') }}
-                                        </a>
-
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                            @csrf
-                                        </form>
-                                    </div>
-                                </li>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                                </div>
+                            </li>
                             @endguest
                         </ul>
                     </div>
@@ -117,7 +137,8 @@
                     <!-- Calling Info -->
                     <div class="calling-info">
                         <div class="call-center">
-                            <a href="tel:+654563325568889"><i class="icon-telephone-2"></i> <span>(+65) 456 332 5568 889</span></a>
+                            <a href="tel:+654563325568889"><i class="icon-telephone-2"></i> <span>(+65) 456 332 5568
+                                    889</span></a>
                         </div>
                     </div>
                 </nav>

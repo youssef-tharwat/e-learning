@@ -18,3 +18,13 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+// Teacher
+Route::prefix('teacher')->group(function(){
+    Route::get('/', 'TeacherController@index')->name('teacher.dashboard');
+    Route::get('/login', 'Auth\Teacher\TeacherLoginController@showLoginForm')->name('teacher.login');
+    Route::post('/login', 'Auth\Teacher\TeacherLoginController@login')->name('teacher.login.submit');
+});
+
+
+

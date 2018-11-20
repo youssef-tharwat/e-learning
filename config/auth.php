@@ -45,6 +45,24 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'teacher' => [
+            'driver' => 'session',
+            'provider' => 'teachers',
+        ],
+        'teacher-api' => [
+            'driver' => 'token',
+            'provider' => 'teachers',
+        ],
+        
+        'student' => [
+            'driver' => 'session',
+            'provider' => 'students',
+        ],
+        'student-api' => [
+            'driver' => 'token',
+            'provider' => 'students',
+        ],
     ],
 
     /*
@@ -70,6 +88,16 @@ return [
             'model' => App\User::class,
         ],
 
+        'teachers' => [
+            'driver' => 'eloquent',
+            'model' => App\Teacher::class,
+        ],
+
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Student::class,
+        ],
+
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
@@ -92,8 +120,21 @@ return [
     */
 
     'passwords' => [
+
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'teacher' => [
+            'provider' => 'teachers',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+
+        'student' => [
+            'provider' => 'students',
             'table' => 'password_resets',
             'expire' => 60,
         ],
