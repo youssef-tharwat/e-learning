@@ -33,7 +33,7 @@
                                                 aria-haspopup="true" aria-expanded="false">Register</a>
                                             <div class="dropdown-menu p-3">
                                                 <a class="nav-link" href="{{ route('register') }}">{{ __('Student Register') }}</a>
-                                                <a class="nav-link" href="{{ route('login') }}">{{ __('Teacher Register') }}</a>
+                                                <a class="nav-link" href="{{ route('teacher.registration') }}">{{ __('Teacher Register') }}</a>
                                             </div>
                                         </li>
                                     </ul>

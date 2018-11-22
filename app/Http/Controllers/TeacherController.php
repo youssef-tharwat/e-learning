@@ -24,9 +24,10 @@ class TeacherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index()
     {
-        return view('test2');
+        return view('teacher.teacher_dashboard');
     }
 
     /**

@@ -4,12 +4,12 @@
 <div class="container" style="margin:10em;">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <h1 class="mb-4">Student Registration</h1>
+            <h1 class="mb-4">Teacher Registration</h1>
             <div class="card">
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('teacher.registration.submit') }}">
                         @csrf
 
                         <div class="form-group row">
@@ -59,6 +59,17 @@
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="school" class="col-md-4 col-form-label text-md-right">{{ __('School') }}</label>
+                            <div class="col-md-6">
+                                <select class="form-control" name="school" id="school">
+                                    @foreach ($schools as $school)
+                                    <option>{{ $school->name }}</option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
 

@@ -12,18 +12,20 @@
 */
 
 Route::get('/', function () {
-    return view('index');
+    return view('index')->name('home');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');
 
-// Teacher
+// Teacher Auth
 Route::prefix('teacher')->group(function(){
     Route::get('/', 'TeacherController@index')->name('teacher.dashboard');
     Route::get('/login', 'Auth\Teacher\TeacherLoginController@showLoginForm')->name('teacher.login');
     Route::post('/login', 'Auth\Teacher\TeacherLoginController@login')->name('teacher.login.submit');
+    Route::get('/register', 'Auth\Teacher\TeacherRegisterController@showRegistrationForm')->name('teacher.registration');
+    Route::post('/register', 'Auth\Teacher\TeacherRegisterController@register')->name('teacher.registration.submit');
 });
 
 
