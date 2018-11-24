@@ -62,6 +62,47 @@
                             </div>
                         </div>
 
+                        <div class="form-group row">
+                            <label for="school" class="col-md-4 col-form-label text-md-right">{{ __('School Name') }}</label>
+                            <div class="col-md-6">
+                                  <select class="form-control" name="school" id="school" required>
+                                    @foreach ($schools as $school)
+                                        <option value="{{$school->name}}">{{$school->name}}</option>
+                                    @endforeach
+                                  </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="level" class="col-md-4 col-form-label text-md-right">{{ __('Educational Level') }}</label>
+                            <div class="col-md-6">
+                                  <select class="form-control" name="level" id="level" required>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                  </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="parent_name" class="col-md-4 col-form-label text-md-right">{{ __('Parent Name') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="parent_name" type="text" class="form-control" name="parent_name" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="parent_email" class="col-md-4 col-form-label text-md-right">{{ __('Parent Email') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="parent_email" type="email" class="form-control" name="parent_email" required>
+                            </div>
+                        </div>
+
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

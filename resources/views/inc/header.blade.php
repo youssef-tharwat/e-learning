@@ -6,7 +6,7 @@
                 <div class="col-12 h-100">
                     <div class="header-content h-100 d-flex align-items-center justify-content-between">
                         <div class="academy-logo">
-                            <a href="{{url('/')}}"><img src="{{asset('img/core-img/logo.png')}}" alt=""></a>
+                            <a href=""><img src="{{asset('img/core-img/logo.png')}}" alt=""></a>
                         </div>
                         <ul class="navbar-nav ml-auto" style="display: flex; flex-direction: row;">
                             <!-- Authentication Links -->
@@ -88,46 +88,8 @@
                         <!-- Nav Start -->
                         <div class="classynav">
                             <ul>
-                                <li><a href="{{url('/')}}">Home</a></li>
-                                <li><a href="#">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="{{url('/')}}">Home</a></li>
-                                        <li><a href="{{url('/about')}}">About Us</a></li>
-                                        <li><a href="{{url('/course')}}">Course</a></li>
-                                        <li><a href="{{url('/contact')}}">Contact</a></li>
-                                        <li><a href="elements.html">Elements</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="#">Mega Menu</a>
-                                    <div class="megamenu">
-                                        <ul class="single-mega cn-col-4">
-                                            <li><a href="#">Home</a></li>
-                                            <li><a href="#">Services &amp; Features</a></li>
-                                            <li><a href="#">Accordions and tabs</a></li>
-                                            <li><a href="#">Menu ideas</a></li>
-                                            <li><a href="#">Students Gallery</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li><a href="#">Home</a></li>
-                                            <li><a href="#">Services &amp; Features</a></li>
-                                            <li><a href="#">Accordions and tabs</a></li>
-                                            <li><a href="#">Menu ideas</a></li>
-                                            <li><a href="#">Students Gallery</a></li>
-                                        </ul>
-                                        <ul class="single-mega cn-col-4">
-                                            <li><a href="#">Home</a></li>
-                                            <li><a href="#">Services &amp; Features</a></li>
-                                            <li><a href="#">Accordions and tabs</a></li>
-                                            <li><a href="#">Menu ideas</a></li>
-                                            <li><a href="#">Students Gallery</a></li>
-                                        </ul>
-                                        <div class="single-mega cn-col-4">
-                                            <img src="{{asset('img/bg-img/bg-1.jpg')}}" alt="">
-                                        </div>
-                                    </div>
-                                </li>
+                                <li><a href="{{ url('/') }}">Home</a></li>
                                 <li><a href="about-us.html">About Us</a></li>
-                                <li><a href="course.html">Course</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </div>

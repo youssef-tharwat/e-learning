@@ -17,6 +17,8 @@
     <!-- Core Stylesheet -->
     <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
+    @yield('css')
+
 </head>
 
 <body>
@@ -27,7 +29,18 @@
 </div>
 
 <!-- ##### Header Area Start ##### -->
-@include('inc.header')
+
+@if(Auth::guard('web')->check())
+
+    @include('inc.user_header')
+
+@elseif(Auth::guard('teacher')->check())
+
+    @include('inc.teacher_header')     
+                           
+@else 
+    @include('inc.header')
+@endif
 <!-- ##### Header Area End ##### -->
 
 @yield('content')
@@ -47,6 +60,8 @@
 <script src="{{asset('js/plugins/plugins.js')}}"></script>
 <!-- Active js -->
 <script src="{{asset('js/active.js')}}"></script>
+
+@yield('js')
 </body>
 
 </html>

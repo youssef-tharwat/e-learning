@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\School;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/login';
 
     /**
      * Create a new controller instance.
@@ -59,14 +60,23 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\Student
+     * @return \App\User
      */
     protected function create(array $data)
     {
-        return Student::create([
+        $school = School::wherename($data['school'])->firstOrFail();
+        $school_ID = $school->id;
+
+        return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'school_id' => $school_ID ,
+            'level' => $data['level'],
+            'score'=> 0,
+            'parent_name' => $data['parent_name'],
+            'parent_email' => $data['parent_email'],
+
         ]);
     }
 }
