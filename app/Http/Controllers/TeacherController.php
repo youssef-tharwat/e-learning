@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Teacher;
+use App\User;
+use App\School;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class TeacherController extends Controller
 {
@@ -27,7 +30,54 @@ class TeacherController extends Controller
 
     public function index()
     {
-        return view('teacher.teacher_dashboard');
+        $users = User::orderBy('score', 'DESC')->get();
+        $usersArray = [] ;
+        $singleUsersArray = [];
+
+        foreach ($users as $key => $user) {
+            $school = School::find($user->school_id);
+            $schoolName = $school->name;
+            
+            $userArray = [
+                'id' => $user->id,
+                'name' => $user->name,
+                'level' => $user->level,
+                'score' => $user->score,
+                'school_name' => $schoolName,
+                'parent_name' => $user->parent_name,
+                'parent_email' => $user->parent_email,
+            ];
+
+            array_push($usersArray, $userArray);
+        }
+        
+
+        foreach ($users as $key => $user) {
+            $school = School::find($user->school_id);
+
+            if(Auth::user()->school_id == $school->id){
+                $schoolName = $school->name;
+            
+                $singleUserArray = [
+                    'id' => $user->id,
+                    'name' => $user->name,
+                    'level' => $user->level,
+                    'score' => $user->score,
+                    'school_name' => $schoolName,
+                    'parent_name' => $user->parent_name,
+                    'parent_email' => $user->parent_email,
+                ];
+
+                array_push($singleUsersArray, $singleUserArray);
+            }
+        }
+
+        
+
+    
+
+
+        return view('teacher.teacher_dashboard', compact('usersArray','users', 'singleUsersArray'));
     }
 
     /**

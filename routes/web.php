@@ -18,13 +18,16 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/dashboard', 'UserController@index')->name('user.dashboard');
 
-// Teacher Auth
+// Teacher 
 Route::prefix('teacher')->group(function(){
     Route::get('/dashboard', 'TeacherController@index')->name('teacher.dashboard');
+    
+    // Auth
     Route::get('/login', 'Auth\Teacher\TeacherLoginController@showLoginForm')->name('teacher.login');
     Route::post('/login', 'Auth\Teacher\TeacherLoginController@login')->name('teacher.login.submit');
     Route::get('/register', 'Auth\Teacher\TeacherRegisterController@showRegistrationForm')->name('teacher.registration');
     Route::post('/register', 'Auth\Teacher\TeacherRegisterController@register')->name('teacher.registration.submit');
+    Route::post('/student/register', 'Auth\Teacher\UserRegisterController@studentRegister')->name('teacher.student.registration.submit');
 });
 
 // Testing 

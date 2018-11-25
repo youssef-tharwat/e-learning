@@ -13,8 +13,7 @@
 <link href="https://cdn.jsdelivr.net/npm/chartist@0.11.0/dist/chartist.min.css" rel="stylesheet">
 <link href="https://cdn.jsdelivr.net/npm/jqvmap@1.5.1/dist/jqvmap.min.css" rel="stylesheet">
 
-<link href="https://cdn.jsdelivr.net/npm/weathericons@2.1.0/css/weather-icons.css" rel="stylesheet" />
-<link href="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.css" rel="stylesheet" />
+
 
 <style>
     body {
@@ -111,6 +110,13 @@
     padding-right:0;
 }
 
+#scoreboard > div > div > table > thead > tr > th:nth-child(6),
+#scoreboard-grouped > div > div > table > thead > tr > th:nth-child(6){
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 #nav-tabContent{
     padding:0 !important;
 }
@@ -121,7 +127,11 @@
     border-bottom-color: transparent !important;
 }
 
-
+.order-table tr td:last-child{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 </style>
@@ -183,7 +193,7 @@
                                     </div>
                                     <div class="stat-content">
                                         <div class="text-left dib">
-                                            <div class="stat-text"><span class="count">0</span></div>
+                                            <div class="stat-text"><span class="count">{{count($singleUsersArray)}}</span></div>
                                             <div class="stat-heading">Students</div>
                                         </div>
                                     </div>
@@ -214,7 +224,6 @@
                                                                                 <thead>
                                                                                     <tr>
                                                                                         <th class="serial">#</th>
-                                                                                       
                                                                                         <th>ID</th>
                                                                                         <th>Name</th>
                                                                                         <th>Score</th>
@@ -223,171 +232,21 @@
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody>
-                                                                                            <tr>
-                                                                                                <td class="serial">1.</td>
-                                                                                                <td> #5469 </td>
-                                                                                                <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                <td><span class="count">312</span></td>
-                                                                                                <td> <span class="product">1</span> </td>
-                                                                                                <td>
-                                                                                                    <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                </td>
-                                                                                                
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td class="serial">1.</td>
-                                                                                                <td> #5469 </td>
-                                                                                                <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                <td><span class="count">312</span></td>
-                                                                                                <td> <span class="product">1</span> </td>
-                                                                                                <td>
-                                                                                                    <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                </td>
-                                                                                                
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
+                                                                                           
+                                                                                            @foreach ($singleUsersArray as $indexKey => $user)
+                                                                                                <tr>
+                                                                                                    <td class="serial">{{$indexKey + 1}}</td>
+                                                                                                    <td>{{$user['id']}}</td>
+                                                                                                    <td>  <span class="name">{{$user['name']}}</span> </td>
+                                                                                                    <td><span class="count">{{$user['score']}}</span></td>
+                                                                                                    <td> <span class="product">{{$user['level']}}</span> </td>
+                                                                                                    <td> 
+                                                                                                        <span class="badge badge-complete">{{$user['school_name']}}</span>
                                                                                                     </td>
                                                                                                     
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
+                                                                                                </tr>
+                                                                                            @endforeach
+                                                                                         
                                                                                 </tbody>
                                                                             </table>
                                                                         </div> <!-- /.table-stats -->
@@ -400,7 +259,6 @@
                                                                                 <thead>
                                                                                     <tr>
                                                                                         <th class="serial">#</th>
-                                                                                       
                                                                                         <th>ID</th>
                                                                                         <th>Name</th>
                                                                                         <th>Score</th>
@@ -409,171 +267,19 @@
                                                                                     </tr>
                                                                                 </thead>
                                                                                 <tbody>
-                                                                                            <tr>
-                                                                                                <td class="serial">1.</td>
-                                                                                                <td> #5469 </td>
-                                                                                                <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                <td><span class="count">312</span></td>
-                                                                                                <td> <span class="product">1</span> </td>
-                                                                                                <td>
-                                                                                                    <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                </td>
-                                                                                                
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                <td class="serial">1.</td>
-                                                                                                <td> #5469 </td>
-                                                                                                <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                <td><span class="count">312</span></td>
-                                                                                                <td> <span class="product">1</span> </td>
-                                                                                                <td>
-                                                                                                    <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                </td>
-                                                                                                
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
-                                                                                            <tr>
-                                                                                                    <td class="serial">1.</td>
-                                                                                                    <td> #5469 </td>
-                                                                                                    <td>  <span class="name">Louis Stanley</span> </td>
-                                                                                                    <td><span class="count">312</span></td>
-                                                                                                    <td> <span class="product">1</span> </td>
-                                                                                                    <td>
-                                                                                                        <span class="badge badge-complete">S.K Bukit Jalil</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                            </tr>
+                                                                                        @foreach ($usersArray as $indexKey => $user)
+                                                                                        <tr>
+                                                                                            <td class="serial">{{$indexKey + 1}}</td>
+                                                                                            <td>{{$user['id']}}</td>
+                                                                                            <td>  <span class="name">{{$user['name']}}</span> </td>
+                                                                                            <td><span class="count">{{$user['score']}}</span></td>
+                                                                                            <td> <span class="product">{{$user['level']}}</span> </td>
+                                                                                            <td> 
+                                                                                                <span class="badge badge-complete">{{$user['school_name']}}</span>
+                                                                                            </td>
+                                                                                            
+                                                                                        </tr>
+                                                                                    @endforeach
                                                                                 </tbody>
                                                                             </table>
                                                                         </div> <!-- /.table-stats -->
@@ -611,7 +317,7 @@
                                 <div class="card">
                                         <div class="card-header">Register Student</div>
                                         <div class="card-body card-block">
-                                                <form method="POST" action="{{ route('register') }}">
+                                                <form method="POST" action="{{ route('teacher.student.registration.submit') }}">
                                                         @csrf
                                 
                                                         <div class="form-group row">
@@ -665,20 +371,6 @@
                                                         </div>
                                 
                                                         <div class="form-group row">
-                                                            <label for="school" class="col-md-4 col-form-label text-md-right">{{ __('School Name') }}</label>
-                                                            <div class="col-md-6">
-                                                                  <select class="form-control" name="school" id="school" required>
-                                                                    {{-- @foreach ($schools as $school)
-                                                                        <option value="{{$school->name}}">{{$school->name}}</option>
-                                                                    @endforeach --}}
-                                                                    <option value="">1</option>
-                                                                    <option value="">1</option>
-                                                                    <option value="">1</option>
-                                                                  </select>
-                                                            </div>
-                                                        </div>
-                                
-                                                        <div class="form-group row">
                                                             <label for="level" class="col-md-4 col-form-label text-md-right">{{ __('Educational Level') }}</label>
                                                             <div class="col-md-6">
                                                                   <select class="form-control" name="level" id="level" required>
@@ -728,7 +420,6 @@
                                                         <thead>
                                                             <tr>
                                                                 <th class="serial">#</th>
-                                                               
                                                                 <th>ID</th>
                                                                 <th>Name</th>
                                                                 <th>Score</th>
@@ -737,29 +428,19 @@
                                                             </tr>
                                                         </thead>
                                                         <tbody>
-                                                                    <tr>
-                                                                        <td class="serial">1.</td>
-                                                                        <td> #5469 </td>
-                                                                        <td>  <span class="name">Louis Stanley</span> </td>
-                                                                        <td><span class="count">312</span></td>
-                                                                        <td> <span class="product">1</span> </td>
-                                                                        <td> 
-                                                                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>&nbsp;Delete</button>
-                                                                        </td>
-                                                                        
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td class="serial">1.</td>
-                                                                        <td> #5469 </td>
-                                                                        <td>  <span class="name">Louis Stanley</span> </td>
-                                                                        <td><span class="count">312</span></td>
-                                                                        <td> <span class="product">1</span> </td>
-                                                                        <td> 
-                                                                            <button type="button" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>&nbsp;Delete</button>
-                                                                        </td>
-                                                                        
-                                                                    </tr>
-                                
+                                                            @foreach ($users as $indexKey => $user)
+                                                            <tr>
+                                                                    <td class="serial">{{$indexKey + 1}}</td>
+                                                                    <td>{{$user->id}}</td>
+                                                                    <td>  <span class="name">{{$user->name}}</span> </td>
+                                                                    <td><span class="count">{{$user->score}}</span></td>
+                                                                    <td> <span class="product">{{$user->level}}</span> </td>
+                                                                    <td> 
+                                                                        <a  href="delete/{{ $user->id }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>&nbsp;Delete</a>
+                                                                    </td>
+                                                                    
+                                                                </tr>
+                                                            @endforeach
                                                         </tbody>
                                                     </table>
                                             </div> 
@@ -768,95 +449,7 @@
                     </div>
         
                 </div>
-                <!-- /To Do and Live Chat -->
-                <!-- Calender Chart Weather  -->
-                <div class="row">
-                    <div class="col-md-12 col-lg-4">
-                        <div class="card">
-                            <div class="card-body">
-                                <!-- <h4 class="box-title">Chandler</h4> -->
-                                <div class="calender-cont widget-calender">
-                                    <div id="calendar"></div>
-                                </div>
-                            </div>
-                        </div><!-- /.card -->
-                    </div>
-
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card ov-h">
-                            <div class="card-body bg-flat-color-2">
-                                <div id="flotBarChart" class="float-chart ml-4 mr-4"></div>
-                            </div>
-                            <div id="cellPaiChart" class="float-chart"></div>
-                        </div><!-- /.card -->
-                    </div>
-                    <div class="col-lg-4 col-md-6">
-                        <div class="card weather-box">
-                            <h4 class="weather-title box-title">Weather</h4>
-                            <div class="card-body">
-                                <div class="weather-widget">
-                                    <div id="weather-one" class="weather-one"></div>
-                                </div>
-                            </div>
-                        </div><!-- /.card -->
-                    </div>
-                </div>
-                <!-- /Calender Chart Weather -->
-                <!-- Modal - Calendar - Add New Event -->
-                <div class="modal fade none-border" id="event-modal">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><strong>Add New Event</strong></h4>
-                            </div>
-                            <div class="modal-body"></div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
-                                <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- /#event-modal -->
-                <!-- Modal - Calendar - Add Category -->
-                <div class="modal fade none-border" id="add-category">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title"><strong>Add a category </strong></h4>
-                            </div>
-                            <div class="modal-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <label class="control-label">Category Name</label>
-                                            <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name"/>
-                                        </div>
-                                        <div class="col-md-6">
-                                            <label class="control-label">Choose Category Color</label>
-                                            <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
-                                                <option value="success">Success</option>
-                                                <option value="danger">Danger</option>
-                                                <option value="info">Info</option>
-                                                <option value="pink">Pink</option>
-                                                <option value="primary">Primary</option>
-                                                <option value="warning">Warning</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            <!-- /#add-category -->
+                
             </div>
             <!-- .animated -->
         </div>
@@ -881,9 +474,6 @@
 <script src="https://cdn.jsdelivr.net/npm/jquery.flot@0.8.3/jquery.flot.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flot-pie@1.0.0/src/jquery.flot.pie.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/flot-spline@0.0.1/js/jquery.flot.spline.min.js"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/simpleweather@3.1.0/jquery.simpleWeather.min.js"></script>
-<script src="assets/js/init/weather-init.js"></script>
 
 <script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.9.0/dist/fullcalendar.min.js"></script>
