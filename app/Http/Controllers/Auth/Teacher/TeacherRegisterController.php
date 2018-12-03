@@ -10,13 +10,14 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 
 
 class TeacherRegisterController extends Controller
 {
     
-    protected $redirectTo = '/';
+    protected $redirectTo = '/teacher/dashboard';
 
    
     public function __construct()
@@ -59,8 +60,10 @@ class TeacherRegisterController extends Controller
 
         $this->guard()->login($teacher);
 
+        Session::flash('flash_message', 'Task successfully added!');
+
         return $this->registered($request, $teacher)
-                        ?: redirect()->intended(route('teacher.login'));
+                        ?: redirect()->intended(route('teacher.dashboard'));
     }
 
     /**
@@ -104,7 +107,5 @@ class TeacherRegisterController extends Controller
         //
     }
 
-    protected function redirectPath(){
-        
-    }
+    
 }

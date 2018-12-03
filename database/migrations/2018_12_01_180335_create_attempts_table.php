@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTasksTable extends Migration
+class CreateAttemptsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateTasksTable extends Migration
      */
     public function up()
     {
-        Schema::create('tasks', function (Blueprint $table) {
+        Schema::create('attempts', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id');
+            $table->integer('school_id');
             $table->integer('quiz_id');
-            $table->longText('q');
-            $table->text('options');
-            $table->integer('correctIndex');
-            $table->string('correctResponse');
-            $table->string('incorrectResponse');
+            $table->boolean('attempted');
+            $table->integer('score');
             $table->timestamps();
         });
     }
@@ -32,6 +31,6 @@ class CreateTasksTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tasks');
+        Schema::dropIfExists('attempts');
     }
 }

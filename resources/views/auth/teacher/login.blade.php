@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container" style="margin:10em;">
+        @if($errors->any())
+        <div class="alert alert-danger">
+            @foreach($errors->all() as $error)
+                <p>{{ $error }}</p>
+            @endforeach
+        </div>
+    @endif
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h1 class="mb-4">Teacher Login</h1>

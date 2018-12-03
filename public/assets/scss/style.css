@@ -284,7 +284,7 @@ Googel Fonts  */
       vertical-align: middle;
       -webkit-transition: all 0.2s linear;
       transition: all 0.2s linear; }
-  .tdl-holder label {
+  .tdl-holder a {
     cursor: pointer;
     display: block;
     line-height: 50px;
@@ -297,7 +297,7 @@ Googel Fonts  */
     font-size: 15px;
     -webkit-transition: all 0.2s linear;
     transition: all 0.2s linear; }
-    .tdl-holder label:hover {
+    .tdl-holder a:hover {
       background-color: rgba(153, 171, 180, 0.1); }
     .tdl-holder label a {
       border-radius: 50%;
