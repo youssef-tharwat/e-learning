@@ -144,7 +144,7 @@
         justify-content: center;
         align-items: center;
         flex-wrap: wrap;
-        height:400px;
+        height:450px;
         overflow:auto;
     }
 
@@ -807,13 +807,12 @@
                     }
                 },
                 error: function (jqXHR, exception) {
-                    alert(exception);
-                    alert(jqXHR);
+
                 }
             });
         }
 
-        $('#quiz-name').blur(function(){
+        $('#quiz-name').keyup(function(){
             duplicateQuiz(this);
         });
 
@@ -835,7 +834,7 @@
                 '                                                    </div>'+
                 ''+
                 '                                                    <div class="col-md-10">'+
-                '                                                        <input type="text" required name="question[]" placeholder="Enter Question" class="form-control name_list" />'+
+                '                                                        <textarea name="question[]" required class="form-control name_list" placeholder="Enter Question" rows="3"></textarea>'+
                 '                                                    </div>'+
                 '                                                </div>'+
                 ''+

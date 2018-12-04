@@ -49,7 +49,7 @@ Route::prefix('teacher')->group(function(){
 // Testing 
 
 Route::get('/testing', function () {
-    return view('test_dashboard');
+    return view('videochat');
 });
 
 

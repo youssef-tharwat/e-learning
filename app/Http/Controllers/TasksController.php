@@ -58,7 +58,7 @@ class TasksController extends Controller
                 ],
                 'correctIndex' => $correctAnswerIndex,
                 'correctResponse' => 'Correct!',
-                'incorrectResponse' => 'Try again!',
+                'incorrectResponse' => 'Incorrect!',
 
             ]);
 
@@ -79,14 +79,13 @@ class TasksController extends Controller
         if ($isExists){
             return response()->json(array("exists" => true));
         } else {
+
             return response()->json(array("exists" => false));
         }
     }
 
     public function storeQuiz(Request $request){
-
         event($this->createQuiz($request->all()));
-
     }
 
     public function createQuiz(array $data){
