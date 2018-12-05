@@ -8,6 +8,7 @@ use App\Quiz;
 use App\User;
 use App\School;
 use App\Attempts;
+use \Pusher\Pusher;
 use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
@@ -114,6 +115,22 @@ class UserController extends Controller
         $user->save();
 
         return route('user.dashboard');
+    }
+
+    public function testing(){
+        return view('videochat');
+    }
+
+    public function authenticate(Request $request) {
+        $socketId = $request->socket_id;
+        $channelName = $request->channel_name;
+        $pusher = new Pusher('fbf1b872c5f8c1aaee3e', '1fb4874a07be95246335', '664900', [
+            'cluster' => 'ap1',
+            'encrypted' => true
+        ]);
+        $presence_data = ['name' => Auth::user()->name];
+        $key = $pusher->presence_auth($channelName, $socketId, Auth::user()->id, $presence_data);
+        return response($key);
     }
 
 
