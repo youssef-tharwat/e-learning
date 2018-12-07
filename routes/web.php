@@ -21,8 +21,6 @@ Route::get('/dashboard', 'UserController@index')->name('user.dashboard');
 Route::get('dashboard/task/{id}','UserController@taskShow')->name('task.show');
 Route::post('dashboard/task/complete','UserController@taskComplete')->name('task.complete');
 Route::post('dashboard/task/score','UserController@taskScore')->name('task.score');
-Route::get('dashboard/testing','UserController@testing');
-Route::post('pusher/auth', 'UserController@authenticate');
 
 // Teacher 
 Route::prefix('teacher')->group(function(){
@@ -47,6 +45,13 @@ Route::prefix('teacher')->group(function(){
     Route::post('/register', 'Auth\Teacher\TeacherRegisterController@register')->name('teacher.registration.submit');
     Route::post('/student/register', 'Auth\Teacher\UserRegisterController@studentRegister')->name('teacher.student.registration.submit');
 });
+
+// Video chat
+
+Route::get('/videoroom', 'VideoChatController@index')->name('video.room');
+Route::post('/videoroom/notification', 'VideoChatController@sendNotification')->name('video.chat.notification');
+
+Route::get('/videoroom/videochat', 'VideoChatController@videochat')->name('video.chat');
 
 // Testing 
 

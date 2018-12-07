@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Notifications\VideoCalls;
 use Illuminate\Http\Request;
 use App\Task;
 use App\Quiz;
@@ -80,6 +81,7 @@ class UserController extends Controller
 
         $quizesCompleted = $Attempts;
 
+
         return view('dashboard', compact('quizes', 'quizesCompleted', 'users', 'singleUsersArray', 'schoolScores', 'usersArray'));
     }
 
@@ -116,22 +118,5 @@ class UserController extends Controller
 
         return route('user.dashboard');
     }
-
-    public function testing(){
-        return view('videochat');
-    }
-
-    public function authenticate(Request $request) {
-        $socketId = $request->socket_id;
-        $channelName = $request->channel_name;
-        $pusher = new Pusher('fbf1b872c5f8c1aaee3e', '1fb4874a07be95246335', '664900', [
-            'cluster' => 'ap1',
-            'encrypted' => true
-        ]);
-        $presence_data = ['name' => Auth::user()->name];
-        $key = $pusher->presence_auth($channelName, $socketId, Auth::user()->id, $presence_data);
-        return response($key);
-    }
-
 
 }

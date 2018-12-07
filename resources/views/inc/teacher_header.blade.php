@@ -40,18 +40,30 @@
                                     @endif
                                 </li>
                                 @else
+                                    <li class="nav-item dropdown" id="notification-dropdown" style="margin-right: 1em;">
+                                        <a id="notificationDropdown"  class="nav-link dropdown-toggle" href="#" role="button"
+                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                            <i class="fa fa-bell"></i> <span class="badge-pill">{{count(Auth::user()->unreadNotifications)}}</span>
+                                        </a>
+
+                                        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="notificationDropdown" style="overflow: auto; height: 100px;">
+                                            @foreach(Auth::user()->unreadNotifications as $notification)
+                                                @include('layouts.partials.notification.video_call_notification',['$notification' => $notification])
+                                            @endforeach
+                                        </ul>
+                                    </li>
                                 <li class="nav-item dropdown">
                                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                         {{ Auth::user()->name }} <span class="caret"></span>
                                     </a>
-    
+
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                                          document.getElementById('logout-form').submit();">
                                             {{ __('Logout') }}
                                         </a>
-    
+
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             @csrf
                                         </form>
@@ -97,6 +109,7 @@
                                     </li>
                                     <li><a href="">Add Task</a></li>
                                     <li><a href="">Scoreboard</a></li>
+                                    <li><a href="{{route('video.room')}}">Video Room</a></li>
                                 </ul>
                             </div>
                             <!-- Nav End -->
