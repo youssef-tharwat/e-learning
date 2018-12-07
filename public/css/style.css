@@ -1238,3 +1238,17 @@ img {
     font-size: 18px; }
 
 /*# sourceMappingURL=style.css.map */
+
+#notification-dropdown .dropdown-toggle::after{
+  display: none !important;
+}
+
+#notification-dropdown .badge-pill{
+  background-color: red;
+  font-size: 12px;
+  color:white;
+}
+
+.nav-item .dropdown-menu{
+    transform: translate3d(-122px, 37px, 0px) !important;
+}
