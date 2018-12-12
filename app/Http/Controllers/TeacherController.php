@@ -6,11 +6,13 @@ use App\Teacher;
 use App\User;
 use App\School;
 use App\Quiz;
+use App\File;
 use App\Task;
 use App\Attempts;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Scalar\String_;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class TeacherController extends Controller
@@ -151,8 +153,19 @@ class TeacherController extends Controller
          * @var UploadedFile
          */
 
+        $originalName = $request->file('file')->getClientOriginalName();
+        $this->createFiles($originalName);
+
         $file = $request->file('file');
-        $file->store('upload', 'public');
+        $file->storePubliclyAs('upload', $originalName  ,'public');
+
+        return back();
+    }
+
+    public function createFiles($name){
+        File::create([
+            'name' => $name
+        ]);
     }
 
 }

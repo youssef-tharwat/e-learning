@@ -370,6 +370,25 @@
                 </div>
                 </section>
 
+                <section id="create-question-section">
+                    <div class="row">
+                        <div class="col-lg-12" style="display:flex;">
+                            <div class="card" style="width:100%;">
+                                <div class="card-header">Materials</div>
+                                <div class="card-body card-block">
+                                    <ul>
+                                        @foreach($files as $file)
+                                        <li class="form-control">
+                                            <a href="{{asset('storage/upload/'.$file['name'])}}" target="_blank">{{$file['name']}}</a>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
 
             </div>
             <!-- .animated -->

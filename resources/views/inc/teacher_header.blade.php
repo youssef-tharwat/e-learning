@@ -110,6 +110,7 @@
                                     </li>
                                     <li><a href="#search-section">Add Task</a></li>
                                     <li><a href="#scoreboard-section">Scoreboard</a></li>
+                                    <li><a href="{{route('chat')}}">Chat Room</a></li>
                                     <li><a href="{{route('video.room')}}">Video Room</a></li>
                                 </ul>
                             </div>

@@ -40,4 +40,9 @@ class Teacher extends Authenticatable
     {
         return $this->hasMany('App\Task', 'assigned_by');
     }
+
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

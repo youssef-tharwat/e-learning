@@ -8,10 +8,10 @@
 @endsection
 
 @section('content')
-    <div class="container" id="app" style="margin-top:  5em; margin-bottom: 5em;">
-        <div class="row justify-content-center">
+    <div class="container-fluid" id="app" style="margin-top:  5em; margin-bottom: 5em;">
+        <div class="row justify-content-center" style="margin-top: 7em">
             <chat-component></chat-component>
-            <user-component></user-component>
+
         </div>
     </div>
 @endsection

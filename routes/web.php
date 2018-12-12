@@ -62,10 +62,16 @@ Route::get('/chat', 'ChatController@index')->name('chat');
 Route::get('/message', 'MessageController@index')->name('message');
 Route::post('/message', 'MessageController@store')->name('message.store');
 
+Broadcast::routes();
 
-//Route::get('/chatroom', 'MessageController@index')->name('chat.room');
-//Route::get('messages', 'MessageController@fetch');
-//Route::post('messages', 'MessageController@sentMessage');
+Route::get('/about', function (){
+    return view('about-us');
+})->name('about');
+
+Route::get('/contact', function (){
+    return view('contact');
+})->name('contact');
+
 
 // Testing 
 

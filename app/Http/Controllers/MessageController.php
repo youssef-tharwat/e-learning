@@ -8,6 +8,11 @@ use App\Events\MessageCreated;
 
 class MessageController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth:web,teacher');
+    }
+
     public function index()
     {
         $messages = Message::with(['user'])->get();
@@ -21,6 +26,7 @@ class MessageController extends Controller
         $message = $request->user()->messages()->create([
             'body' => $request->body
         ]);
+
 
         broadcast(new MessageCreated($message))
                 ->toOthers();

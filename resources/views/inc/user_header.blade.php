@@ -104,6 +104,7 @@
                                     <li><a href="#todotask-section">Tasks</a></li>
                                     <li><a href="#scoreboard-section">Scoreboard</a></li>
                                     <li><a href="{{route('game')}}">Games</a></li>
+                                    <li><a href="{{route('chat')}}">Chat Room</a></li>
                                     <li><a href="{{route('video.room')}}">Video Room</a></li>
                                 </ul>
                             </div>
