@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container" style="margin:10em;">
+<div class="container" style="margin-top: 10em; margin-bottom: 10em;">
         @if($errors->any())
         <div class="alert alert-danger">
             @foreach($errors->all() as $error)

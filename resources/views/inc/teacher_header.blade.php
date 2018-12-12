@@ -103,12 +103,13 @@
                                     <li><a href="{{ url('/teacher/dashboard') }}">Dashboard</a></li>
                                     <li><a href="#">Students</a>
                                         <ul class="dropdown">
-                                            <li><a href="">Register</a></li>
-                                            <li><a href="">Delete</a></li>
+                                            <li><a href="#register-student-section">Register</a></li>
+                                            <li><a href="#register-student-section">Delete</a></li>
+                                            <li><a href="#search-section">Search</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="">Add Task</a></li>
-                                    <li><a href="">Scoreboard</a></li>
+                                    <li><a href="#search-section">Add Task</a></li>
+                                    <li><a href="#scoreboard-section">Scoreboard</a></li>
                                     <li><a href="{{route('video.room')}}">Video Room</a></li>
                                 </ul>
                             </div>

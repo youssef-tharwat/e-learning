@@ -162,7 +162,9 @@
 @endsection
 
 @section('content')
-
+    @if(Session::has('message'))
+        <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
+    @endif
     <!-- Right Panel -->
     <div id="right-panel" class="right-panel">
 
@@ -228,36 +230,40 @@
                 </div>
                 <!-- /Widgets -->
 
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title box-title">Todo Tasks</h4>
-                                <div class="card-content">
-                                    <div class="todo-list">
-                                        <div class="tdl-holder">
-                                            <div class="tdl-content">
-                                                <ul>
-                                                    @foreach($quizes as $quiz)
-                                                        <li>
-                                                            <a href="{{route('task.show', $quiz->id)}}">
-                                                                <span>{{$quiz->name}}</span>
-                                                            </a>
-                                                        </li>
-                                                    @endforeach
-                                                </ul>
+                <section id="todotask-section">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h4 class="card-title box-title">Todo Tasks</h4>
+                                    <div class="card-content">
+                                        <div class="todo-list">
+                                            <div class="tdl-holder">
+                                                <div class="tdl-content">
+                                                    <ul>
+                                                        @foreach($quizes as $quiz)
+                                                            <li>
+                                                                <a href="{{route('task.show', $quiz->id)}}">
+                                                                    <span>{{$quiz->name}}</span>
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
                                             </div>
-                                        </div>
-                                    </div> <!-- /.todo-list -->
-                                </div>
-                            </div> <!-- /.card-body -->
-                        </div><!-- /.card -->
+                                        </div> <!-- /.todo-list -->
+                                    </div>
+                                </div> <!-- /.card-body -->
+                            </div><!-- /.card -->
+                        </div>
+
+
                     </div>
+                </section>
 
 
-                </div>
-
-                <div class="orders">
+                <section id="scoreboard-section">
+                    <div class="orders">
                     <div class="row">
                         <div class="col-xl-8">
                             <div class="card">
@@ -362,6 +368,7 @@
                         </div> <!-- /.col-md-4 -->
                     </div>
                 </div>
+                </section>
 
 
             </div>

@@ -257,96 +257,96 @@
                     </div>
                 </div>
                 <!-- /Widgets -->
-
-                <div class="orders">
+                <section id="scoreboard-section">
+                    <div class="orders">
                         <div class="row">
                             <div class="col-xl-8">
                                 <div class="card">
                                     <div class="card-body">
-                                            <div class="custom-tab">
-                                                    <nav>
-                                                        <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                                            <a class="nav-item nav-link active show" id="custom-nav-home-tab" data-toggle="tab" href="#scoreboard" role="tab" aria-controls="custom-nav-home" aria-selected="true">Scoreboard</a>
-                                                            <a class="nav-item nav-link" id="custom-nav-profile-tab" data-toggle="tab" href="#scoreboard-grouped" role="tab" aria-controls="custom-nav-profile" aria-selected="false">Grouped Scoreboard</a>
-                                                        </div>
-                                                    </nav>
-                                                    <div class="tab-content pl-3 pt-2" id="nav-tabContent">
-                                                        <div class="tab-pane fade active show" id="scoreboard" role="tabpanel" aria-labelledby="custom-nav-home-tab">
-                                                                <div class="card-body--">
-                                                                        <div class="table-stats order-table ov-h">
-                                                                            <table class="table ">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th class="serial">#</th>
-                                                                                        <th>ID</th>
-                                                                                        <th>Name</th>
-                                                                                        <th>Score</th>
-                                                                                        <th>Level</th>
-                                                                                        <th>School</th>
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <tbody>
-                                                                                           
-                                                                                            @foreach ($singleUsersArray as $indexKey => $user)
-                                                                                                <tr>
-                                                                                                    <td class="serial">{{$indexKey + 1}}</td>
-                                                                                                    <td>{{$user['id']}}</td>
-                                                                                                    <td>  <span class="name">{{$user['name']}}</span> </td>
-                                                                                                    <td><span class="count">{{$user['score']}}</span></td>
-                                                                                                    <td> <span class="product">{{$user['level']}}</span> </td>
-                                                                                                    <td> 
-                                                                                                        <span class="badge badge-complete">{{$user['school_name']}}</span>
-                                                                                                    </td>
-                                                                                                    
-                                                                                                </tr>
-                                                                                            @endforeach
-                                                                                         
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </div> <!-- /.table-stats -->
-                                                                    </div>
-                                                        </div>
-                                                        <div class="tab-pane fade" id="scoreboard-grouped" role="tabpanel" aria-labelledby="custom-nav-profile-tab">
-                                                                <div class="card-body--">
-                                                                        <div class="table-stats order-table ov-h">
-                                                                            <table class="table ">
-                                                                                <thead>
-                                                                                    <tr>
-                                                                                        <th class="serial">#</th>
-                                                                                        <th>ID</th>
-                                                                                        <th>Name</th>
-                                                                                        <th>Score</th>
-                                                                                        <th>Level</th>
-                                                                                        <th>School</th>
-                                                                                    </tr>
-                                                                                </thead>
-                                                                                <tbody>
-                                                                                        @foreach ($usersArray as $indexKey => $user)
-                                                                                        <tr>
-                                                                                            <td class="serial">{{$indexKey + 1}}</td>
-                                                                                            <td>{{$user['id']}}</td>
-                                                                                            <td>  <span class="name">{{$user['name']}}</span> </td>
-                                                                                            <td><span class="count">{{$user['score']}}</span></td>
-                                                                                            <td> <span class="product">{{$user['level']}}</span> </td>
-                                                                                            <td> 
-                                                                                                <span class="badge badge-complete">{{$user['school_name']}}</span>
-                                                                                            </td>
-                                                                                            
-                                                                                        </tr>
-                                                                                    @endforeach
-                                                                                </tbody>
-                                                                            </table>
-                                                                        </div> <!-- /.table-stats -->
-                                                                    </div>
-                                                        </div>
+                                        <div class="custom-tab">
+                                            <nav>
+                                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                                    <a class="nav-item nav-link active show" id="custom-nav-home-tab" data-toggle="tab" href="#scoreboard" role="tab" aria-controls="custom-nav-home" aria-selected="true">Scoreboard</a>
+                                                    <a class="nav-item nav-link" id="custom-nav-profile-tab" data-toggle="tab" href="#scoreboard-grouped" role="tab" aria-controls="custom-nav-profile" aria-selected="false">Grouped Scoreboard</a>
+                                                </div>
+                                            </nav>
+                                            <div class="tab-content pl-3 pt-2" id="nav-tabContent">
+                                                <div class="tab-pane fade active show" id="scoreboard" role="tabpanel" aria-labelledby="custom-nav-home-tab">
+                                                    <div class="card-body--">
+                                                        <div class="table-stats order-table ov-h">
+                                                            <table class="table ">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th class="serial">#</th>
+                                                                    <th>ID</th>
+                                                                    <th>Name</th>
+                                                                    <th>Score</th>
+                                                                    <th>Level</th>
+                                                                    <th>School</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+
+                                                                @foreach ($singleUsersArray as $indexKey => $user)
+                                                                    <tr>
+                                                                        <td class="serial">{{$indexKey + 1}}</td>
+                                                                        <td>{{$user['id']}}</td>
+                                                                        <td>  <span class="name">{{$user['name']}}</span> </td>
+                                                                        <td><span class="count">{{$user['score']}}</span></td>
+                                                                        <td> <span class="product">{{$user['level']}}</span> </td>
+                                                                        <td>
+                                                                            <span class="badge badge-complete">{{$user['school_name']}}</span>
+                                                                        </td>
+
+                                                                    </tr>
+                                                                @endforeach
+
+                                                                </tbody>
+                                                            </table>
+                                                        </div> <!-- /.table-stats -->
                                                     </div>
                                                 </div>
+                                                <div class="tab-pane fade" id="scoreboard-grouped" role="tabpanel" aria-labelledby="custom-nav-profile-tab">
+                                                    <div class="card-body--">
+                                                        <div class="table-stats order-table ov-h">
+                                                            <table class="table ">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th class="serial">#</th>
+                                                                    <th>ID</th>
+                                                                    <th>Name</th>
+                                                                    <th>Score</th>
+                                                                    <th>Level</th>
+                                                                    <th>School</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                @foreach ($usersArray as $indexKey => $user)
+                                                                    <tr>
+                                                                        <td class="serial">{{$indexKey + 1}}</td>
+                                                                        <td>{{$user['id']}}</td>
+                                                                        <td>  <span class="name">{{$user['name']}}</span> </td>
+                                                                        <td><span class="count">{{$user['score']}}</span></td>
+                                                                        <td> <span class="product">{{$user['level']}}</span> </td>
+                                                                        <td>
+                                                                            <span class="badge badge-complete">{{$user['school_name']}}</span>
+                                                                        </td>
+
+                                                                    </tr>
+                                                                @endforeach
+                                                                </tbody>
+                                                            </table>
+                                                        </div> <!-- /.table-stats -->
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    
-                                    
+
+
                                 </div> <!-- /.card -->
                             </div>  <!-- /.col-lg-8 -->
-    
+
                             <div class="col-xl-4">
                                 <div class="row">
                                     <div class="col-lg-12 col-xl-12">
@@ -358,365 +358,428 @@
                                             </div>
                                         </div><!-- /.card -->
                                     </div>
-    
+
                                 </div>
                             </div> <!-- /.col-md-4 -->
                         </div>
                     </div>
+                </section>
 
-                <div class="row">
-                    <div class="col-lg-5" style="display:flex;">
-                        <div class="card" style="width:100%;">
-                            <div class="card-header">Create Quiz</div>
-                            <div class="card-body card-block" style="display: flex;flex-direction: column;">
-                                <form id="quiz_form" method="POST" action="{{ route('quiz.store') }}" style="margin: auto;width: 100%;">
-                                    @csrf
+                <section>
+                    <div class="row">
+                        <div class="col-lg-6" style="display:flex;">
+                            <div class="card" style="width:100%;">
+                                <div class="card-header">Create Quiz</div>
+                                <div class="card-body card-block" style="display: flex;flex-direction: column;">
+                                    <form id="quiz_form" method="POST" action="{{ route('quiz.store') }}" style="margin: auto;width: 100%;">
+                                        @csrf
 
-                                    <div class="form-group row">
-                                        <label for="quiz-name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                                        <div class="form-group row">
+                                            <label for="quiz-name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
-                                        <div class="col-md-6">
-                                            <input id="quiz-name" type="text"  class="form-control{{ $errors->has('quiz-name') ? ' is-invalid' : '' }}" name="quiz-name" value="{{ old('quiz-name') }}" required autofocus>
+                                            <div class="col-md-6">
+                                                <input id="quiz-name" type="text"  class="form-control{{ $errors->has('quiz-name') ? ' is-invalid' : '' }}" name="quiz-name" value="{{ old('quiz-name') }}" required autofocus>
 
-                                            @if ($errors->has('quiz-name'))
-                                                <span class="invalid-feedback" role="alert">
+                                                @if ($errors->has('quiz-name'))
+                                                    <span class="invalid-feedback" role="alert">
                                                                         <strong>{{ $errors->first('quiz-name') }}</strong>
                                                                     </span>
-                                            @endif
+                                                @endif
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="form-group row">
-                                        <label for="level" class="col-md-4 col-form-label text-md-right">{{ __('Educational Level') }}</label>
-                                        <div class="col-md-6">
-                                            <select class="form-control" name="level" id="quizLevel" required>
-                                                <option>1</option>
-                                                <option>2</option>
-                                                <option>3</option>
-                                                <option>4</option>
-                                                <option>5</option>
-                                                <option>6</option>
-                                            </select>
+                                        <div class="form-group row">
+                                            <label for="level" class="col-md-4 col-form-label text-md-right">{{ __('Educational Level') }}</label>
+                                            <div class="col-md-6">
+                                                <select class="form-control" name="level" id="quizLevel" required>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                </select>
+                                            </div>
                                         </div>
-                                    </div>
 
-                                    <div class="sufee-alert alert with-close alert-success alert-dismissible fade" style="display:none; margin-top:1em;">
-                                        <span class="badge badge-pill badge-success">Success</span>
-                                        Successfully Created!
-                                        <button type="button" class="close" onclick="" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                    </div>
-                                    <div class="sufee-alert alert with-close alert-danger alert-dismissible fade" style="display:none; margin-top:1em;">
-                                        <span class="badge badge-pill badge-danger">Error!</span>
-                                        Something went wrong! Try again.
-                                        <button type="button" class="close" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                    </div>
-
-                                    <div class="sufee-alert alert with-close alert-danger second alert-dismissible fade" style="display:none; margin-top:1em;">
-                                        <span class="badge badge-pill badge-danger">Error!</span>
-                                        Quiz name already exists!
-                                        <button type="button" class="close" aria-label="Close">
-                                            <span aria-hidden="true">×</span>
-                                        </button>
-                                    </div>
-
-                                    <div class="form-group row mb-0">
-                                        <div class="col-md-6 offset-md-4">
-                                            <button type="submit" class="btn btn-primary pu">
-                                                {{ __('Create') }}
+                                        <div class="sufee-alert alert with-close alert-success alert-dismissible fade" style="display:none; margin-top:1em;">
+                                            <span class="badge badge-pill badge-success">Success</span>
+                                            Successfully Created!
+                                            <button type="button" class="close" onclick="" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
                                             </button>
                                         </div>
-                                    </div>
+                                        <div class="sufee-alert alert with-close alert-danger alert-dismissible fade" style="display:none; margin-top:1em;">
+                                            <span class="badge badge-pill badge-danger">Error!</span>
+                                            Something went wrong! Try again.
+                                            <button type="button" class="close" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
 
-                                </form>
+                                        <div class="sufee-alert alert with-close alert-danger second alert-dismissible fade" style="display:none; margin-top:1em;">
+                                            <span class="badge badge-pill badge-danger">Error!</span>
+                                            Quiz name already exists!
+                                            <button type="button" class="close" aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+
+                                        <div class="form-group row mb-0">
+                                            <div class="col-md-6 offset-md-4">
+                                                <button type="submit" class="btn btn-primary pu">
+                                                    {{ __('Create') }}
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6" style="display:flex;">
+                            <div class="card" style="width:100%;">
+                                <div class="card-header">Upload Materials</div>
+                                <div class="card-body card-block" style="display: flex;flex-direction: column;">
+                                    <form id="quiz_form" method="POST" action="{{ route('file.store') }}" enctype="multipart/form-data" style="margin: auto;width: 100%;">
+                                        {{ csrf_field() }}
+
+                                        <div class="form-group row">
+                                            <label for="file" class="col-md-4 col-form-label text-md-right">{{ __('Select File') }}</label>
+
+                                            <div class="col-md-6">
+                                                <input id="file" type="file"  class="form-control" name="file"  required autofocus style="height: 100%;">
+
+                                                @if ($errors->has('quiz-name'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $errors->first('quiz-name') }}</strong>
+                                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
+
+
+                                        {{--<div class="sufee-alert alert with-close alert-success alert-dismissible fade" style="display:none; margin-top:1em;">--}}
+                                            {{--<span class="badge badge-pill badge-success">Success</span>--}}
+                                            {{--Successfully Created!--}}
+                                            {{--<button type="button" class="close" onclick="" aria-label="Close">--}}
+                                                {{--<span aria-hidden="true">×</span>--}}
+                                            {{--</button>--}}
+                                        {{--</div>--}}
+                                        {{--<div class="sufee-alert alert with-close alert-danger alert-dismissible fade" style="display:none; margin-top:1em;">--}}
+                                            {{--<span class="badge badge-pill badge-danger">Error!</span>--}}
+                                            {{--Something went wrong! Try again.--}}
+                                            {{--<button type="button" class="close" aria-label="Close">--}}
+                                                {{--<span aria-hidden="true">×</span>--}}
+                                            {{--</button>--}}
+                                        {{--</div>--}}
+
+                                        <div class="form-group row mb-0">
+                                            <div class="col-md-6 offset-md-4">
+                                                <button type="submit" class="btn btn-primary pu">
+                                                    {{ __('Upload') }}
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-7" style="display:flex;">
-                        <div class="card" style="width:100%;">
-                            <div class="card-header">Search Student</div>
-                            <div class="card-body card-block">
-                                <div class="card-body--">
-                                    <div class="form-group row">
-                                        <label for="search" class="col-md-4 col-form-label text-md-right">{{ __('Search') }}</label>
 
-                                        <div class="col-md-6">
-                                            <input type="text" class="form-controller form-control" id="search" name="search" />
+                </section>
+
+
+
+                <section id="create-question-section">
+                    <div class="row">
+                        <div class="col-lg-12" style="display:flex;">
+                            <div class="card" style="width:100%;">
+                                <div class="card-header">Create Questions</div>
+                                <div class="card-body card-block">
+                                    <form name="add_name" id="tasks_form" method="POST" action="{{ route('tasks.store') }}">
+                                        @csrf
+                                        <div class="table-responsive">
+                                            <div class="table table-bordered" id="dynamic_field">
+                                                <div class="question-group">
+
+                                                    <div class="form-group row" style="display: flex;align-items: center;">
+                                                        <div class="col-md-2">
+                                                            <label for="quizName" class=" col-form-label text-md-right">{{ __('Select Quiz') }}</label>
+                                                        </div>
+
+                                                        <div class="col-md-10">
+                                                            <select class="form-control" name="quizName" id="quizName" required>
+                                                                @foreach ($nonAssignedQuizes as $quiz)
+                                                                    <option value="{{$quiz->name}}">{{$quiz->name}}</option>
+                                                                @endforeach
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row" style="display: flex;align-items: center;">
+                                                        <div class="col-md-2">
+                                                            <label for="question" class="col-form-label text-md-right">{{ __('Question') }}</label>
+                                                        </div>
+
+                                                        <div class="col-md-10">
+                                                            <textarea name="question[]" required class="form-control name_list" placeholder="Enter Question" rows="3"></textarea>
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row" style="display: flex;align-items: center;">
+                                                        <div class="col-md-2">
+                                                            <label for="answer1" class=" col-form-label text-md-right">{{ __('Answer 1') }}</label>
+                                                        </div>
+
+                                                        <div class="col-md-10">
+                                                            <input type="text" name="answer1[]" placeholder="Answer 1" required class="form-control name_list" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row" style="display: flex;align-items: center;">
+                                                        <div class="col-md-2">
+                                                            <label for="answer2" class=" col-form-label text-md-right">{{ __('Answer 2') }}</label>
+                                                        </div>
+
+                                                        <div class="col-md-10">
+                                                            <input type="text" name="answer2[]" required placeholder="Answer 2" class="form-control name_list" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row" style="display: flex;align-items: center;">
+                                                        <div class="col-md-2">
+                                                            <label for="answer3" class=" col-form-label text-md-right">{{ __('Answer 3') }}</label>
+                                                        </div>
+
+                                                        <div class="col-md-10">
+                                                            <input type="text" name="answer3[]" required placeholder="Answer 3" class="form-control name_list" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="form-group row" style="display: flex;align-items: center;">
+                                                        <div class="col-md-2">
+                                                            <label for="correctAnswer" class=" col-form-label text-md-right">{{ __('Select Correct Answer') }}</label>
+                                                        </div>
+
+                                                        <div class="col-md-10">
+                                                            <select class="form-control name_list" name="correctAnswer[]" id="correctAnswer" required>
+                                                                <option>Answer 1</option>
+                                                                <option>Answer 2</option>
+                                                                <option>Answer 3</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+                                                    <button type="button" name="add" id="add" class="btn btn-success btn-sm" style="margin-bottom: 1em;">Add More</button>
+                                                </div>
+                                            </div>
+                                            <input type="submit" name="submit" id="submit123" class="btn btn-info" value="Submit" />
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="search-section">
+                    <div class="row">
+                        <div class="col-lg-12" style="display:flex;">
+                            <div class="card" style="width:100%;">
+                                <div class="card-header">Search Student</div>
+                                <div class="card-body card-block">
+                                    <div class="card-body--">
+                                        <div class="form-group row">
+                                            <label for="search" class="col-md-4 col-form-label text-md-right">{{ __('Search') }}</label>
+
+                                            <div class="col-md-6">
+                                                <input type="text" class="form-controller form-control" id="search" name="search" />
+                                            </div>
+                                        </div>
+                                        <div class="table-stats ov-h">
+                                            <table class="table " id="userSearchTable">
+                                                <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Name</th>
+                                                    <th>Email</th>
+                                                    <th>Level</th>
+                                                    <th>Score</th>
+                                                </tr>
+                                                </thead>
+                                                <tbody>
+
+                                                </tbody>
+                                            </table>
                                         </div>
                                     </div>
-                                    <div class="table-stats ov-h">
-                                        <table class="table " id="userSearchTable">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section id="register-student-section">
+                    <div class="row">
+                        <div class="col-lg-6" style="display:flex;">
+                            <div class="card" style="width:100%;">
+                                <div class="card-header">Register Student</div>
+                                <div class="card-body card-block">
+                                    <form id="registeration_form" method="POST" action="{{ route('teacher.student.registration.submit') }}">
+                                        @csrf
+
+                                        <div class="form-group row">
+                                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+
+                                            <div class="col-md-6">
+                                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+
+                                                @if ($errors->has('name'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $errors->first('name') }}</strong>
+                                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+
+                                            <div class="col-md-6">
+                                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+
+                                                @if ($errors->has('email'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $errors->first('email') }}</strong>
+                                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                                            <div class="col-md-6">
+                                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
+
+                                                @if ($errors->has('password'))
+                                                    <span class="invalid-feedback" role="alert">
+                                                                        <strong>{{ $errors->first('password') }}</strong>
+                                                                    </span>
+                                                @endif
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+
+                                            <div class="col-md-6">
+                                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="level" class="col-md-4 col-form-label text-md-right">{{ __('Educational Level') }}</label>
+                                            <div class="col-md-6">
+                                                <select class="form-control" name="level" id="level" required>
+                                                    <option>1</option>
+                                                    <option>2</option>
+                                                    <option>3</option>
+                                                    <option>4</option>
+                                                    <option>5</option>
+                                                    <option>6</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="parent_name" class="col-md-4 col-form-label text-md-right">{{ __('Parent Name') }}</label>
+
+                                            <div class="col-md-6">
+                                                <input id="parent_name" type="text" class="form-control" name="parent_name" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row">
+                                            <label for="parent_email" class="col-md-4 col-form-label text-md-right">{{ __('Parent Email') }}</label>
+
+                                            <div class="col-md-6">
+                                                <input id="parent_email" type="email" class="form-control" name="parent_email" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group row mb-0">
+                                            <div class="col-md-6 offset-md-4">
+                                                <button type="submit" class="btn btn-primary pu">
+                                                    {{ __('Register') }}
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="sufee-alert alert with-close alert-success alert-dismissible fade" style="display:none; margin-top:1em;">
+                                            <span class="badge badge-pill badge-success">Success</span>
+                                            You successfully registered the student.
+                                            <button type="button" class="close"  aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                        <div class="sufee-alert alert with-close alert-danger alert-dismissible fade" style="display:none; margin-top:1em;">
+                                            <span class="badge badge-pill badge-danger">Error!</span>
+                                            Something went wrong! Try again.
+                                            <button type="button" class="close"  aria-label="Close">
+                                                <span aria-hidden="true">×</span>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6" style="display:flex;">
+                            <div class="card">
+                                <div class="card-header">Delete Student</div>
+                                <div class="card-body card-block" style="padding:0;">
+                                    <div class="table-stats order-table ov-h" >
+                                        <table class="table ">
                                             <thead>
                                             <tr>
+
                                                 <th>ID</th>
                                                 <th>Name</th>
-                                                <th>Email</th>
-                                                <th>Level</th>
                                                 <th>Score</th>
+                                                <th>Level</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
-                                            <tbody>
+                                            <tbody style="min-height:370px;">
+                                            @foreach ($singleUsersArray as $indexKey => $user)
+                                                <tr>
 
+                                                    <td>{{$user['id']}}</td>
+                                                    <td>  <span class="name">{{$user['name']}}</span> </td>
+                                                    <td><span class="count">{{$user['score']}}</span></td>
+                                                    <td> <span class="product">{{$user['level']}}</span> </td>
+                                                    <td>
+
+                                                        {!! Form::open(['action' => ['TeacherController@destroyUser', $user['id'] ] , 'method' => 'POST']) !!}
+                                                        {{Form::hidden('_method', 'DELETE')}}
+                                                        {{Form::submit('Delete', ['class'=> 'btn btn-danger btn-sm'])}}
+                                                        {!! Form::close() !!}
+
+                                                    </td>
+
+                                                </tr>
+                                            @endforeach
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                     </div>
+                </section>
 
-
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-12" style="display:flex;">
-                        <div class="card" style="width:100%;">
-                            <div class="card-header">Create Questions</div>
-                            <div class="card-body card-block">
-                                <form name="add_name" id="tasks_form" method="POST" action="{{ route('tasks.store') }}">
-                                    @csrf
-                                    <div class="table-responsive">
-                                        <div class="table table-bordered" id="dynamic_field">
-                                            <div class="question-group">
-
-                                                <div class="form-group row" style="display: flex;align-items: center;">
-                                                    <div class="col-md-2">
-                                                        <label for="quizName" class=" col-form-label text-md-right">{{ __('Select Quiz') }}</label>
-                                                    </div>
-
-                                                    <div class="col-md-10">
-                                                        <select class="form-control" name="quizName" id="quizName" required>
-                                                            @foreach ($nonAssignedQuizes as $quiz)
-                                                                <option value="{{$quiz->name}}">{{$quiz->name}}</option>
-                                                            @endforeach
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row" style="display: flex;align-items: center;">
-                                                    <div class="col-md-2">
-                                                        <label for="question" class="col-form-label text-md-right">{{ __('Question') }}</label>
-                                                    </div>
-
-                                                    <div class="col-md-10">
-                                                        <textarea name="question[]" required class="form-control name_list" placeholder="Enter Question" rows="3"></textarea>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row" style="display: flex;align-items: center;">
-                                                    <div class="col-md-2">
-                                                        <label for="answer1" class=" col-form-label text-md-right">{{ __('Answer 1') }}</label>
-                                                    </div>
-
-                                                    <div class="col-md-10">
-                                                        <input type="text" name="answer1[]" placeholder="Answer 1" required class="form-control name_list" />
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row" style="display: flex;align-items: center;">
-                                                    <div class="col-md-2">
-                                                        <label for="answer2" class=" col-form-label text-md-right">{{ __('Answer 2') }}</label>
-                                                    </div>
-
-                                                    <div class="col-md-10">
-                                                        <input type="text" name="answer2[]" required placeholder="Answer 2" class="form-control name_list" />
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row" style="display: flex;align-items: center;">
-                                                    <div class="col-md-2">
-                                                        <label for="answer3" class=" col-form-label text-md-right">{{ __('Answer 3') }}</label>
-                                                    </div>
-
-                                                    <div class="col-md-10">
-                                                        <input type="text" name="answer3[]" required placeholder="Answer 3" class="form-control name_list" />
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row" style="display: flex;align-items: center;">
-                                                    <div class="col-md-2">
-                                                        <label for="correctAnswer" class=" col-form-label text-md-right">{{ __('Select Correct Answer') }}</label>
-                                                    </div>
-
-                                                    <div class="col-md-10">
-                                                        <select class="form-control name_list" name="correctAnswer[]" id="correctAnswer" required>
-                                                            <option>Answer 1</option>
-                                                            <option>Answer 2</option>
-                                                            <option>Answer 3</option>
-                                                        </select>
-                                                    </div>
-                                                </div>
-
-                                                <button type="button" name="add" id="add" class="btn btn-success btn-sm" style="margin-bottom: 1em;">Add More</button>
-                                            </div>
-                                        </div>
-                                        <input type="submit" name="submit" id="submit123" class="btn btn-info" value="Submit" />
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col-lg-6" style="display:flex;">
-                                <div class="card" style="width:100%;">
-                                        <div class="card-header">Register Student</div>
-                                        <div class="card-body card-block">
-                                                <form id="registeration_form" method="POST" action="{{ route('teacher.student.registration.submit') }}">
-                                                        @csrf
-
-                                                        <div class="form-group row">
-                                                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
-
-                                                            <div class="col-md-6">
-                                                                <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
-
-                                                                @if ($errors->has('name'))
-                                                                    <span class="invalid-feedback" role="alert">
-                                                                        <strong>{{ $errors->first('name') }}</strong>
-                                                                    </span>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group row">
-                                                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                                                            <div class="col-md-6">
-                                                                <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                                                @if ($errors->has('email'))
-                                                                    <span class="invalid-feedback" role="alert">
-                                                                        <strong>{{ $errors->first('email') }}</strong>
-                                                                    </span>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group row">
-                                                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                                                            <div class="col-md-6">
-                                                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                                                @if ($errors->has('password'))
-                                                                    <span class="invalid-feedback" role="alert">
-                                                                        <strong>{{ $errors->first('password') }}</strong>
-                                                                    </span>
-                                                                @endif
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group row">
-                                                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                                                            <div class="col-md-6">
-                                                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group row">
-                                                            <label for="level" class="col-md-4 col-form-label text-md-right">{{ __('Educational Level') }}</label>
-                                                            <div class="col-md-6">
-                                                                  <select class="form-control" name="level" id="level" required>
-                                                                    <option>1</option>
-                                                                    <option>2</option>
-                                                                    <option>3</option>
-                                                                    <option>4</option>
-                                                                    <option>5</option>
-                                                                    <option>6</option>
-                                                                  </select>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group row">
-                                                            <label for="parent_name" class="col-md-4 col-form-label text-md-right">{{ __('Parent Name') }}</label>
-
-                                                            <div class="col-md-6">
-                                                                <input id="parent_name" type="text" class="form-control" name="parent_name" required>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group row">
-                                                            <label for="parent_email" class="col-md-4 col-form-label text-md-right">{{ __('Parent Email') }}</label>
-
-                                                            <div class="col-md-6">
-                                                                <input id="parent_email" type="email" class="form-control" name="parent_email" required>
-                                                            </div>
-                                                        </div>
-
-                                                        <div class="form-group row mb-0">
-                                                            <div class="col-md-6 offset-md-4">
-                                                                <button type="submit" class="btn btn-primary pu">
-                                                                    {{ __('Register') }}
-                                                                </button>
-                                                            </div>
-                                                        </div>
-                                                        <div class="sufee-alert alert with-close alert-success alert-dismissible fade" style="display:none; margin-top:1em;">
-                                                            <span class="badge badge-pill badge-success">Success</span>
-                                                            You successfully registered the student.
-                                                            <button type="button" class="close"  aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="sufee-alert alert with-close alert-danger alert-dismissible fade" style="display:none; margin-top:1em;">
-                                                            <span class="badge badge-pill badge-danger">Error!</span>
-                                                            Something went wrong! Try again.
-                                                            <button type="button" class="close"  aria-label="Close">
-                                                                <span aria-hidden="true">×</span>
-                                                            </button>
-                                                        </div>
-                                                    </form>
-                                        </div>
-                                </div>
-                    </div>
-                    <div class="col-lg-6" style="display:flex;">
-                            <div class="card">
-                                    <div class="card-header">Delete Student</div>
-                                    <div class="card-body card-block" style="padding:0;">
-                                            <div class="table-stats order-table ov-h" >
-                                                    <table class="table ">
-                                                        <thead>
-                                                            <tr>
-                                                               
-                                                                <th>ID</th>
-                                                                <th>Name</th>
-                                                                <th>Score</th>
-                                                                <th>Level</th>
-                                                                <th>Action</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody style="min-height:370px;">
-                                                                @foreach ($singleUsersArray as $indexKey => $user)
-                                                                    <tr>
-                                                                      
-                                                                        <td>{{$user['id']}}</td>
-                                                                        <td>  <span class="name">{{$user['name']}}</span> </td>
-                                                                        <td><span class="count">{{$user['score']}}</span></td>
-                                                                        <td> <span class="product">{{$user['level']}}</span> </td>
-                                                                        <td> 
-
-                                                                            {!! Form::open(['action' => ['TeacherController@destroyUser', $user['id'] ] , 'method' => 'POST']) !!}
-                                                                                {{Form::hidden('_method', 'DELETE')}}
-                                                                                {{Form::submit('Delete', ['class'=> 'btn btn-danger btn-sm'])}}
-                                                                            {!! Form::close() !!}
-                                                                                
-                                                                        </td>
-                                                                        
-                                                                    </tr>
-                                                                @endforeach
-                                                        </tbody>
-                                                    </table>
-                                            </div> 
-                                    </div>
-                                </div>
-                    </div>
-        
-                </div>
                 
             </div>
             <!-- .animated -->

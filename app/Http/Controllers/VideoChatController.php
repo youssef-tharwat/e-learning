@@ -80,7 +80,4 @@ class VideoChatController extends Controller
 
     }
 
-    public function videochat(){
-        return view('videochat');
-    }
 }

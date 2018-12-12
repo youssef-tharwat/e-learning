@@ -101,14 +101,9 @@
                             <div class="classynav">
                                 <ul>
                                     <li><a href="{{ url('/dashboard') }}">Dashboard</a></li>
-                                    <li><a href="">Tasks</a></li>
-                                    <li><a href="#">Scoreboard</a>
-                                        <ul class="dropdown">
-                                            <li><a href="{{url('/')}}">Single</a></li>
-                                            <li><a href="{{url('/about')}}">Grouped</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="">Games</a></li>
+                                    <li><a href="#todotask-section">Tasks</a></li>
+                                    <li><a href="#scoreboard-section">Scoreboard</a></li>
+                                    <li><a href="{{route('game')}}">Games</a></li>
                                     <li><a href="{{route('video.room')}}">Video Room</a></li>
                                 </ul>
                             </div>

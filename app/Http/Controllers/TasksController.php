@@ -65,8 +65,6 @@ class TasksController extends Controller
             $counter++;
         }
 
-
-
         return route('teacher.dashboard');
 
     }
