@@ -1,14 +1,18 @@
 <template>
     <div class="message" :class="{ 'self': message.selfMessage }">
         <strong class="user">{{ message.user.name }}</strong>
-        <p class="body">{{ message.body }}</p>
+        <div style="display: flex;">
+            <p class="body">{{ message.body }}</p>
+            <p class="body" style="margin-left: auto;">{{ message.created_at }}</p>
+        </div>
+
     </div>
 </template>
 
 <script>
 
     export default {
-        props: ['message']
+        props: ['message'],
     }
 </script>
 

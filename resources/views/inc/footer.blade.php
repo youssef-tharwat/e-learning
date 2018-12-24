@@ -8,7 +8,7 @@
                         <div class="widget-title">
                             <a href="#"><img src="img/core-img/logo2.png" alt=""></a>
                         </div>
-                        <p>Cras vitae turpis lacinia, lacinia lacus non, fermentum nisi. Donec et sollicitudin est, in euismod erat. Ut at erat et arcu pulvinar cursus a eget.</p>
+                        <p>About e-learning / Academy</p>
                         <div class="footer-social-info">
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>

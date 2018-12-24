@@ -2,7 +2,7 @@
     <div class="message-area" ref="message">
         <message-component 
             v-for="message in messages" 
-            :key="message.id" 
+            :key="message.id"
             :message="message">
         </message-component>      
     </div>

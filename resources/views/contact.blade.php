@@ -22,7 +22,7 @@
                                     <div class="section-heading text-left">
                                         <span>The Best</span>
                                         <h3>Contact Us</h3>
-                                        <p class="mt-30">Lacinia, lacinia la cus non, fermen tum nisi. Donec et sollicitudin. Morbi vel arcu gravida, iaculis lacus vel, posuere ipsum. Sed faucibus mauris vitae urna consectetur, sit amet maximus nisl sagittis. Ut in iaculis enim, et pulvinar mauris.</p>
+                                        <p class="mt-30">Contact us text</p>
                                     </div>
 
                                     <!-- Contact Social Info -->

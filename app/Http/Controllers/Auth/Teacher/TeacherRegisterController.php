@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Session;
 class TeacherRegisterController extends Controller
 {
     
-    protected $redirectTo = '/teacher/dashboard';
+    protected $redirectTo = '/teacher/login';
 
    
     public function __construct()
@@ -58,12 +58,10 @@ class TeacherRegisterController extends Controller
 
         event(new Registered($teacher = $this->create($request->all())));
 
-        $this->guard()->login($teacher);
-
-        Session::flash('flash_message', 'Task successfully added!');
+//        $this->guard()->login($teacher);
 
         return $this->registered($request, $teacher)
-                        ?: redirect()->intended(route('teacher.dashboard'));
+                        ?: redirect()->intended(route('teacher.login'));
     }
 
     /**
@@ -74,25 +72,24 @@ class TeacherRegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $school = School::whereName($data['school'])->firstOrFail();
+        $school = School::whereName($data['school'])->first();
         $schoolID = $school->id;
 
-        event($this->updateSchool($school));
-
-        return Teacher::create([
+        Teacher::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'school_id' => $schoolID,
         ]);
+
+        return event($this->updateSchool($school));
     }
 
     protected function updateSchool($school){
         $schoolID = $school->id;
-        $teacher = Teacher::whereschool_id($schoolID)->firstOrFail();
-
+        $teacher = Teacher::whereschool_id($schoolID)->first();
         $school->teacher_id = $teacher->id;
-        $school->save();
+        return $school->save();
     }
 
      /**

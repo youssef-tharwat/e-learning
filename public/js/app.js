@@ -58568,6 +58568,10 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
 
 
 /* harmony default export */ __webpack_exports__["default"] = ({
@@ -58590,7 +58594,15 @@ var render = function() {
         _vm._v(_vm._s(_vm.message.user.name))
       ]),
       _vm._v(" "),
-      _c("p", { staticClass: "body" }, [_vm._v(_vm._s(_vm.message.body))])
+      _c("div", { staticStyle: { display: "flex" } }, [
+        _c("p", { staticClass: "body" }, [_vm._v(_vm._s(_vm.message.body))]),
+        _vm._v(" "),
+        _c(
+          "p",
+          { staticClass: "body", staticStyle: { "margin-left": "auto" } },
+          [_vm._v(_vm._s(_vm.message.created_at))]
+        )
+      ])
     ]
   )
 }
