@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="container" style="margin:10em;">
+<div class="container" style="margin-top: 10em; margin-bottom: 10em;">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <h1 class="mb-4">Teacher Registration</h1>

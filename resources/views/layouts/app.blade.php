@@ -51,24 +51,37 @@
     <!-- ##### Footer Area Start ##### -->
     @include('inc.footer')
     <!-- ##### Footer Area Start ##### -->
-
-        <!-- ##### All Javascript Script ##### -->
-        <!-- jQuery-2.2.4 js -->
-        <script src="{{asset('js/jquery/jquery-2.2.4.min.js')}}"></script>
-        <!-- Popper js -->
-        <script src="{{asset('js/bootstrap/popper.min.js')}}"></script>
-        <!-- Bootstrap js -->
-        <script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
-
-        <!-- All Plugins js -->
-        <script src="{{asset('js/plugins/plugins.js')}}"></script>
-        <!-- Active js -->
-        <script src="{{asset('js/active.js')}}"></script>
-
-
-        @yield('js')
     </div>
 
+    @yield('vue')
+    <!-- ##### All Javascript Script ##### -->
+    <!-- jQuery-2.2.4 js -->
+    <script src="{{asset('js/jquery/jquery-2.2.4.min.js')}}"></script>
+    <!-- Popper js -->
+
+    <script src="{{asset('js/bootstrap/popper.min.js')}}"></script>
+    <!-- Bootstrap js -->
+
+    <script src="{{asset('js/bootstrap/bootstrap.min.js')}}"></script>
+
+    <!-- All Plugins js -->
+    <script src="{{asset('js/plugins/plugins.js')}}"></script>
+    <!-- Active js -->
+    <script src="{{asset('js/active.js')}}"></script>
+
+    @yield('js')
+
+    <script>
+        window.Laravel = {!! json_encode([
+            'csrfToken'=> csrf_token(),
+            'user'=> [
+                'authenticated' => auth()->check(),
+                'id' => auth()->check() ? auth()->user()->id : null,
+                'name' => auth()->check() ? auth()->user()->name : null,
+                ]
+            ])
+        !!};
+    </script>
 </body>
 
 </html>

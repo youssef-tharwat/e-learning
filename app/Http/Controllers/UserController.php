@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\File;
+use App\Notifications\TaskCompleted;
 use App\Notifications\VideoCalls;
 use Illuminate\Http\Request;
 use App\Task;
@@ -9,6 +11,8 @@ use App\Quiz;
 use App\User;
 use App\School;
 use App\Attempts;
+use Illuminate\Support\Facades\Notification;
+use Illuminate\Support\Facades\Storage;
 use \Pusher\Pusher;
 use Illuminate\Support\Facades\Auth;
 
@@ -81,8 +85,11 @@ class UserController extends Controller
 
         $quizesCompleted = $Attempts;
 
+        $files = File::all();
 
-        return view('dashboard', compact('quizes', 'quizesCompleted', 'users', 'singleUsersArray', 'schoolScores', 'usersArray'));
+
+
+        return view('dashboard', compact('quizes', 'quizesCompleted', 'users', 'singleUsersArray', 'schoolScores', 'usersArray', 'files'));
     }
 
 //    Tasks
@@ -116,7 +123,11 @@ class UserController extends Controller
         $user->score += $request->score;
         $user->save();
 
+
+        Notification::route('mail', $user->parent_email)
+            ->notify(new TaskCompleted($user->name, $request->score, $user->parent_name));
         return route('user.dashboard');
     }
+
 
 }

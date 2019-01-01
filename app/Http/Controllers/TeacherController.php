@@ -6,11 +6,14 @@ use App\Teacher;
 use App\User;
 use App\School;
 use App\Quiz;
+use App\File;
 use App\Task;
 use App\Attempts;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PhpParser\Node\Scalar\String_;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 class TeacherController extends Controller
 {
@@ -99,72 +102,6 @@ class TeacherController extends Controller
         return redirect()->route('teacher.dashboard');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Teacher $teacher)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Teacher $teacher)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Teacher $teacher)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Teacher  $teacher
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Teacher $teacher)
-    {
-        //
-    }
-
 
     public function searchUser(Request $request)
 
@@ -211,6 +148,24 @@ class TeacherController extends Controller
         }
     }
 
+    public function storeFiles(Request $request) {
+        /**
+         * @var UploadedFile
+         */
 
+        $originalName = $request->file('file')->getClientOriginalName();
+        $this->createFiles($originalName);
+
+        $file = $request->file('file');
+        $file->storePubliclyAs('upload', $originalName  ,'public');
+
+        return back();
+    }
+
+    public function createFiles($name){
+        File::create([
+            'name' => $name
+        ]);
+    }
 
 }
